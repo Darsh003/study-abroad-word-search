@@ -145,6 +145,7 @@
             flex-direction: column;
             opacity: 0;
             transition: opacity 0.5s ease;
+            padding-bottom: 80px; /* Add space for progress info */
         }
 
         .game-container.active {
@@ -154,15 +155,15 @@
         .header {
             background: linear-gradient(45deg, #e53e3e, #1a365d);
             border-radius: 20px;
-            padding: 12px 20px;
+            padding: 15px 20px;
             text-align: center;
             color: white;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .title {
-            font-size: clamp(16px, 3.5vw, 20px);
+            font-size: clamp(16px, 4vw, 22px);
             font-weight: 800;
             margin-bottom: 0;
             text-transform: uppercase;
@@ -173,25 +174,26 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .timer-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
-            padding: 8px 15px;
+            padding: 12px 20px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 5px;
         }
 
         .timer {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: #1a365d;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .timer.warning {
@@ -214,11 +216,12 @@
         .words-list {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
-            padding: 12px;
+            padding: 15px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 6px;
+            gap: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 8px;
         }
 
         .word-item {
@@ -226,7 +229,7 @@
             font-weight: 600;
             color: #1a365d;
             text-align: center;
-            padding: 6px 3px;
+            padding: 6px 4px;
             transition: all 0.3s ease;
         }
 
@@ -239,12 +242,13 @@
         .game-grid-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            padding: 10px;
+            padding: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 15px; /* Space for progress info */
         }
 
         .word-grid {
@@ -252,8 +256,8 @@
             grid-template-columns: repeat(12, 1fr);
             gap: 2px;
             width: 100%;
-            aspect-ratio: 1;
-            max-width: min(85vw, 450px);
+            aspect-ratio: 12/15; /* 12 columns, 15 rows */
+            max-width: min(85vw, 380px);
         }
 
         .letter {
@@ -301,32 +305,36 @@
             z-index: 5;
         }
 
-        .letter.found-reverse {
+        .letter.found-diagonal {
             background: #d69e2e !important;
             color: white !important;
             z-index: 5;
         }
 
+        .letter.found-reverse {
+            background: #38a169 !important;
+            color: white !important;
+            z-index: 5;
+        }
+
         .letter.multiple-words {
-            background: linear-gradient(45deg, #e53e3e 33%, #1a365d 33%, #1a365d 66%, #d69e2e 66%) !important;
+            background: linear-gradient(45deg, #e53e3e 25%, #1a365d 25%, #1a365d 50%, #d69e2e 50%, #d69e2e 75%, #38a169 75%) !important;
             color: white !important;
             font-weight: 800;
             z-index: 6;
         }
 
         .progress-info {
-            position: fixed;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1a365d;
+            padding: 10px 20px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 12px;
-            backdrop-filter: blur(10px);
-            z-index: 100;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+            border: 2px solid #e53e3e;
         }
 
         .success-overlay {
@@ -457,6 +465,7 @@
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 20px;
+                padding-bottom: 20px;
             }
 
             .game-content {
@@ -492,7 +501,7 @@
             }
 
             .word-grid {
-                max-width: 500px;
+                max-width: 480px;
                 gap: 3px;
             }
 
@@ -507,10 +516,16 @@
             }
 
             .progress-info {
-                position: static;
-                transform: none;
                 margin-top: 15px;
-                text-align: center;
+                font-size: 16px;
+            }
+
+            .timer {
+                font-size: 24px;
+            }
+
+            .game-grid-container {
+                margin-bottom: 0;
             }
         }
 
@@ -520,10 +535,11 @@
                 padding: 15px;
                 max-width: 700px;
                 margin: 0 auto;
+                padding-bottom: 90px;
             }
 
             .word-grid {
-                max-width: 400px;
+                max-width: 420px;
             }
 
             .letter {
@@ -536,6 +552,14 @@
 
             .word-item {
                 font-size: 12px;
+            }
+
+            .timer {
+                font-size: 20px;
+            }
+
+            .progress-info {
+                font-size: 15px;
             }
         }
     </style>
@@ -555,7 +579,7 @@
 
             <i class="fas fa-search start-icon"></i>
             <h1 class="start-title">Word Search Quest</h1>
-            <p class="start-subtitle">Find all 12 study abroad terms hidden in the grid!</p>
+            <p class="start-subtitle">Find all 15 study abroad terms hidden in the 15×12 grid!</p>
             <button class="start-btn" onclick="startGame()">
                 <i class="fas fa-play"></i> Start Game
             </button>
@@ -581,7 +605,7 @@
                 </div>
 
                 <div class="progress-info">
-                    Found: <span id="foundCount">0</span>/12 words
+                    <i class="fas fa-search"></i> Found: <span id="foundCount">0</span>/15 words
                 </div>
             </div>
 
@@ -601,7 +625,7 @@
                 <img class="logo" src="logo.png" alt="Zain Global Logo">
             </div>
 
-            <!-- <i class="fas fa-trophy success-icon"></i> -->
+            <i class="fas fa-trophy success-icon"></i>
             <h2 class="success-title">Excellent!</h2>
             <p class="success-text">You found all study abroad terms!</p>
             <div class="completion-time" id="completionTime">
@@ -626,98 +650,34 @@
     <script>
         class StudyAbroadWordSearch {
             constructor() {
-                this.gridSize = 12;
+                this.gridRows = 15;
+                this.gridCols = 12;
+                this.grid = [];
+                this.wordPositions = {};
 
-                // Moderate difficulty 12x12 grid with properly hidden words (horizontal and vertical only)
-                this.grid = [
-                    ['Q', 'U', 'N', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'M'],
-                    ['T', 'Y', 'B', 'X', 'Z', 'C', 'V', 'N', 'M', 'K', 'A', 'A'],
-                    ['U', 'L', 'S', 'T', 'I', 'D', 'E', 'R', 'C', 'D', 'S', 'S'],
-                    ['T', 'P', 'Q', 'A', 'S', 'D', 'F', 'G', 'H', 'S', 'S', 'D'],
-                    ['O', 'P', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'R', 'E', 'F'],
-                    ['R', 'A', 'C', 'A', 'M', 'P', 'U', 'S', 'E', 'M', 'T', 'G'],
-                    ['A', 'S', 'V', 'I', 'S', 'A', 'Y', 'U', 'I', 'O', 'P', 'H'],
-                    ['L', 'S', 'B', 'N', 'M', 'Q', 'W', 'E', 'X', 'A', 'M', 'S'],
-                    ['O', 'E', 'N', 'K', 'R', 'Z', 'X', 'C', 'V', 'B', 'N', 'J'],
-                    ['H', 'Y', 'A', 'J', 'O', 'G', 'F', 'D', 'S', 'A', 'Q', 'K'],
-                    ['C', 'F', 'U', 'N', 'D', 'I', 'N', 'G', 'W', 'E', 'R', 'L'],
-                    ['S', 'S', 'T', 'Y', 'U', 'I', 'O', 'P', 'L', 'K', 'J', 'M']
-                ];
-
-                // Correctly positioned words (horizontal and vertical only)
-                this.wordPositions = {
-                    // Horizontal words (left to right)
-                    'UNIVERSITY': [
-                        { row: 0, col: 1 }, { row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 },
-                        { row: 0, col: 5 }, { row: 0, col: 6 }, { row: 0, col: 7 }, { row: 0, col: 8 },
-                        { row: 0, col: 9 }, { row: 0, col: 10 }
-                    ],
-                    'CAMPUS': [
-                        { row: 5, col: 2 }, { row: 5, col: 3 }, { row: 5, col: 4 },
-                        { row: 5, col: 5 }, { row: 5, col: 6 }, { row: 5, col: 7 }
-                    ],
-                    'VISA': [
-                        { row: 6, col: 3 }, { row: 6, col: 4 }, { row: 6, col: 5 }, { row: 6, col: 6 }
-                    ],
-                    'EXAMS': [
-                        { row: 7, col: 7 }, { row: 7, col: 8 }, { row: 7, col: 9 },
-                        { row: 7, col: 10 }, { row: 7, col: 11 }
-                    ],
-                    'FUNDING': [
-                        { row: 10, col: 2 }, { row: 10, col: 3 }, { row: 10, col: 4 },
-                        { row: 10, col: 5 }, { row: 10, col: 6 }, { row: 10, col: 7 }, { row: 10, col: 8 }
-                    ],
-
-                    // Horizontal words (right to left - reversed)
-                    'ESSAY': [
-                        { row: 11, col: 4 }, { row: 11, col: 3 }, { row: 11, col: 2 },
-                        { row: 11, col: 1 }, { row: 0, col: 10 }
-                    ],
-
-                    // Vertical words (top to bottom)
-                    'TUTOR': [
-                        { row: 1, col: 0 }, { row: 2, col: 0 }, { row: 3, col: 0 },
-                        { row: 4, col: 0 }, { row: 5, col: 0 }
-                    ],
-                    'APPLY': [
-                        { row: 11, col: 0 }, { row: 1, col: 1 }, { row: 3, col: 1 },
-                        { row: 10, col: 1 }, { row: 4, col: 1 }
-                    ],
-                    'SCHOLAR': [
-                        { row: 6, col: 0 }, { row: 7, col: 0 }, { row: 8, col: 0 },
-                        { row: 9, col: 0 }, { row: 10, col: 0 }, { row: 11, col: 0 }, { row: 5, col: 0 }
-                    ],
-
-                    // Vertical words (bottom to top - reversed)
-                    'CREDITS': [
-                        { row: 7, col: 0 }, { row: 5, col: 0 }, { row: 11, col: 5 },
-                        { row: 10, col: 4 }, { row: 11, col: 2 }, { row: 11, col: 6 }, { row: 6, col: 0 }
-                    ],
-                    'DORM': [
-                        { row: 3, col: 11 }, { row: 9, col: 0 }, { row: 5, col: 0 }, { row: 11, col: 11 }
-                    ]
-                };
-
-                // Word list
+                // Study abroad related words
                 this.words = [
-                    'VISA', 'CAMPUS', 'UNIVERSITY', 'APPLY',
-                    'ESSAY', 'SCHOLAR', 'FUNDING', 'TUTOR',
-                    'CREDITS', 'EXAMS', 'DORM'
+                    'VISA', 'CAMPUS', 'UNIVERSITY', 'APPLY', 'ESSAY',
+                    'SCHOLAR', 'FUNDING', 'TUTOR', 'CREDITS', 'EXAMS',
+                    'DORM', 'DEGREE', 'STUDY', 'ABROAD', 'IELTS'
                 ];
 
-                // Word objects with direction classes
                 this.wordObjects = [
                     { word: 'VISA', found: false, color: 'found-horizontal' },
-                    { word: 'CAMPUS', found: false, color: 'found-horizontal' },
-                    { word: 'UNIVERSITY', found: false, color: 'found-horizontal' },
-                    { word: 'APPLY', found: false, color: 'found-vertical' },
-                    { word: 'ESSAY', found: false, color: 'found-reverse' },
+                    { word: 'CAMPUS', found: false, color: 'found-vertical' },
+                    { word: 'UNIVERSITY', found: false, color: 'found-diagonal' },
+                    { word: 'APPLY', found: false, color: 'found-reverse' },
+                    { word: 'ESSAY', found: false, color: 'found-horizontal' },
                     { word: 'SCHOLAR', found: false, color: 'found-vertical' },
-                    { word: 'FUNDING', found: false, color: 'found-horizontal' },
-                    { word: 'TUTOR', found: false, color: 'found-vertical' },
-                    { word: 'CREDITS', found: false, color: 'found-vertical' },
-                    { word: 'EXAMS', found: false, color: 'found-horizontal' },
-                    { word: 'DORM', found: false, color: 'found-vertical' }
+                    { word: 'FUNDING', found: false, color: 'found-diagonal' },
+                    { word: 'TUTOR', found: false, color: 'found-reverse' },
+                    { word: 'CREDITS', found: false, color: 'found-horizontal' },
+                    { word: 'EXAMS', found: false, color: 'found-vertical' },
+                    { word: 'DORM', found: false, color: 'found-diagonal' },
+                    { word: 'DEGREE', found: false, color: 'found-reverse' },
+                    { word: 'STUDY', found: false, color: 'found-horizontal' },
+                    { word: 'ABROAD', found: false, color: 'found-vertical' },
+                    { word: 'IELTS', found: false, color: 'found-diagonal' }
                 ];
 
                 this.selectedCells = [];
@@ -725,6 +685,7 @@
                 this.foundWords = 0;
                 this.touchStartPos = null;
                 this.letterWordCount = {};
+                this.selectionDirection = null;
 
                 // Timer properties
                 this.startTime = null;
@@ -732,9 +693,147 @@
                 this.gameEnded = false;
                 this.gameStarted = false;
 
+                this.initializeGrid();
+                this.placeWordsInGrid();
+                this.fillEmptySpaces();
                 this.initializeGame();
                 this.setupEventListeners();
                 this.mapLetterWordCounts();
+            }
+
+            initializeGrid() {
+                this.grid = Array(this.gridRows).fill().map(() => Array(this.gridCols).fill(''));
+            }
+
+            placeWordsInGrid() {
+                this.wordPositions = {};
+
+                // Shuffle words for random placement
+                const shuffledWords = [...this.words].sort(() => Math.random() - 0.5);
+
+                for (const word of shuffledWords) {
+                    let placed = false;
+                    let attempts = 0;
+                    const maxAttempts = 100;
+
+                    while (!placed && attempts < maxAttempts) {
+                        const direction = Math.floor(Math.random() * 8); // 8 directions
+                        const position = this.getRandomPosition(word.length, direction);
+
+                        if (position && this.canPlaceWord(word, position, direction)) {
+                            this.placeWord(word, position, direction);
+                            placed = true;
+                        }
+                        attempts++;
+                    }
+
+                    if (!placed) {
+                        console.warn(`Could not place word: ${word}`);
+                    }
+                }
+            }
+
+            getRandomPosition(wordLength, direction) {
+                let maxRow, maxCol;
+
+                // Calculate maximum starting positions based on direction
+                switch (direction) {
+                    case 0: // Right
+                        maxRow = this.gridRows;
+                        maxCol = this.gridCols - wordLength + 1;
+                        break;
+                    case 1: // Down
+                        maxRow = this.gridRows - wordLength + 1;
+                        maxCol = this.gridCols;
+                        break;
+                    case 2: // Down-Right diagonal
+                        maxRow = this.gridRows - wordLength + 1;
+                        maxCol = this.gridCols - wordLength + 1;
+                        break;
+                    case 3: // Down-Left diagonal
+                        maxRow = this.gridRows - wordLength + 1;
+                        maxCol = wordLength - 1;
+                        break;
+                    case 4: // Left (reverse)
+                        maxRow = this.gridRows;
+                        maxCol = wordLength - 1;
+                        break;
+                    case 5: // Up (reverse)
+                        maxRow = wordLength - 1;
+                        maxCol = this.gridCols;
+                        break;
+                    case 6: // Up-Left diagonal (reverse)
+                        maxRow = wordLength - 1;
+                        maxCol = wordLength - 1;
+                        break;
+                    case 7: // Up-Right diagonal (reverse)
+                        maxRow = wordLength - 1;
+                        maxCol = this.gridCols - wordLength + 1;
+                        break;
+                }
+
+                if (maxRow <= 0 || maxCol <= 0) return null;
+
+                return {
+                    row: Math.floor(Math.random() * maxRow),
+                    col: Math.floor(Math.random() * maxCol)
+                };
+            }
+
+            canPlaceWord(word, position, direction) {
+                const positions = this.getWordPositions(word, position, direction);
+                return positions.every(pos => 
+                    pos.row >= 0 && pos.row < this.gridRows &&
+                    pos.col >= 0 && pos.col < this.gridCols &&
+                    (this.grid[pos.row][pos.col] === '' || this.grid[pos.row][pos.col] === pos.letter)
+                );
+            }
+
+            getWordPositions(word, startPos, direction) {
+                const positions = [];
+                const directions = [
+                    [0, 1],   // Right
+                    [1, 0],   // Down
+                    [1, 1],   // Down-Right diagonal
+                    [1, -1],  // Down-Left diagonal
+                    [0, -1],  // Left
+                    [-1, 0],  // Up
+                    [-1, -1], // Up-Left diagonal
+                    [-1, 1]   // Up-Right diagonal
+                ];
+
+                const [rowDir, colDir] = directions[direction];
+
+                for (let i = 0; i < word.length; i++) {
+                    positions.push({
+                        row: startPos.row + i * rowDir,
+                        col: startPos.col + i * colDir,
+                        letter: word[i]
+                    });
+                }
+
+                return positions;
+            }
+
+            placeWord(word, position, direction) {
+                const positions = this.getWordPositions(word, position, direction);
+                
+                positions.forEach(pos => {
+                    this.grid[pos.row][pos.col] = pos.letter;
+                });
+
+                this.wordPositions[word] = positions.map(pos => ({ row: pos.row, col: pos.col }));
+            }
+
+            fillEmptySpaces() {
+                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                for (let row = 0; row < this.gridRows; row++) {
+                    for (let col = 0; col < this.gridCols; col++) {
+                        if (this.grid[row][col] === '') {
+                            this.grid[row][col] = letters[Math.floor(Math.random() * letters.length)];
+                        }
+                    }
+                }
             }
 
             mapLetterWordCounts() {
@@ -761,14 +860,14 @@
                 const gridContainer = document.getElementById('wordGrid');
                 gridContainer.innerHTML = '';
 
-                for (let row = 0; row < this.gridSize; row++) {
-                    for (let col = 0; col < this.gridSize; col++) {
+                for (let row = 0; row < this.gridRows; row++) {
+                    for (let col = 0; col < this.gridCols; col++) {
                         const letter = document.createElement('div');
                         letter.className = 'letter';
                         letter.textContent = this.grid[row][col];
                         letter.dataset.row = row;
                         letter.dataset.col = col;
-                        letter.dataset.index = row * this.gridSize + col;
+                        letter.dataset.index = row * this.gridCols + col;
                         gridContainer.appendChild(letter);
                     }
                 }
@@ -806,7 +905,7 @@
                 document.getElementById('timeDisplay').textContent = timeString;
 
                 const timerElement = document.getElementById('timer');
-                if (elapsed > 180) {
+                if (elapsed > 300) { // 5 minutes warning
                     timerElement.classList.add('warning');
                 } else {
                     timerElement.classList.remove('warning');
@@ -867,6 +966,7 @@
 
                 this.isSelecting = true;
                 this.selectedCells = [];
+                this.selectionDirection = null;
                 this.clearSelections();
 
                 const target = e.target;
@@ -888,53 +988,56 @@
                 const row = parseInt(letterElement.dataset.row);
                 const col = parseInt(letterElement.dataset.col);
 
-                // Check if this creates a valid straight line (only horizontal or vertical)
-                if (this.selectedCells.length > 1) {
-                    if (!this.isValidLine(row, col)) return;
-                }
-
+                // Skip if already selected
                 const cellKey = `${row}-${col}`;
-                const existingIndex = this.selectedCells.findIndex(cell => `${cell.row}-${cell.col}` === cellKey);
-
-                if (existingIndex === -1) {
-                    this.selectedCells.push({ row, col, element: letterElement });
-                    letterElement.classList.add('selecting');
+                if (this.selectedCells.some(cell => `${cell.row}-${cell.col}` === cellKey)) {
+                    return;
                 }
+
+                // Establish direction after second cell
+                if (this.selectedCells.length === 1) {
+                    const first = this.selectedCells[0];
+                    const deltaRow = row - first.row;
+                    const deltaCol = col - first.col;
+
+                    // Only allow straight lines (horizontal, vertical, diagonal)
+                    if (deltaRow === 0 && deltaCol !== 0) {
+                        this.selectionDirection = [0, Math.sign(deltaCol)]; // Horizontal
+                    } else if (deltaCol === 0 && deltaRow !== 0) {
+                        this.selectionDirection = [Math.sign(deltaRow), 0]; // Vertical
+                    } else if (Math.abs(deltaRow) === Math.abs(deltaCol) && deltaRow !== 0 && deltaCol !== 0) {
+                        this.selectionDirection = [Math.sign(deltaRow), Math.sign(deltaCol)]; // Diagonal
+                    } else {
+                        return; // Invalid direction
+                    }
+                }
+
+                // Check if this follows the established direction
+                if (this.selectedCells.length > 1) {
+                    if (!this.isValidContinuation(row, col)) {
+                        return;
+                    }
+                }
+
+                this.selectedCells.push({ row, col, element: letterElement });
+                letterElement.classList.add('selecting');
             }
 
-            isValidLine(newRow, newCol) {
-                if (this.selectedCells.length < 2) return true;
+            isValidContinuation(newRow, newCol) {
+                if (!this.selectionDirection || this.selectedCells.length < 1) return true;
 
-                const first = this.selectedCells[0];
-                const second = this.selectedCells[1];
-
-                const deltaRow = second.row - first.row;
-                const deltaCol = second.col - first.col;
-
-                // Allow horizontal, vertical, and diagonal lines
-                const isHorizontal = deltaRow === 0 && deltaCol !== 0;
-                const isVertical = deltaCol === 0 && deltaRow !== 0;
-                const isDiagonal = Math.abs(deltaRow) === Math.abs(deltaCol) && deltaRow !== 0 && deltaCol !== 0;
-
-                if (!isHorizontal && !isVertical && !isDiagonal) return false;
-
-                // Get direction
-                const dirRow = deltaRow === 0 ? 0 : Math.sign(deltaRow);
-                const dirCol = deltaCol === 0 ? 0 : Math.sign(deltaCol);
-
-                // Check if the new position follows the same direction
-                const expectedRow = first.row + dirRow * this.selectedCells.length;
-                const expectedCol = first.col + dirCol * this.selectedCells.length;
+                const last = this.selectedCells[this.selectedCells.length - 1];
+                const expectedRow = last.row + this.selectionDirection[0];
+                const expectedCol = last.col + this.selectionDirection[1];
 
                 return expectedRow === newRow && expectedCol === newCol;
             }
-
 
             endSelection() {
                 if (!this.isSelecting || !this.gameStarted) return;
                 this.isSelecting = false;
 
-                if (this.selectedCells.length < 3) {
+                if (this.selectedCells.length < 2) {
                     this.clearSelections();
                     return;
                 }
@@ -965,6 +1068,7 @@
                 }
 
                 this.selectedCells = [];
+                this.selectionDirection = null;
                 this.touchStartPos = null;
             }
 
@@ -1079,6 +1183,7 @@
                 this.foundWords = 0;
                 this.selectedCells = [];
                 this.isSelecting = false;
+                this.selectionDirection = null;
 
                 document.getElementById('successOverlay').style.display = 'none';
 
@@ -1119,7 +1224,7 @@
 
                     gsap.fromTo('.letter',
                         { scale: 0, rotation: 180 },
-                        { scale: 1, rotation: 0, duration: 0.03, stagger: 0.005, ease: "back.out(1.7)" }
+                        { scale: 1, rotation: 0, duration: 0.02, stagger: 0.003, ease: "back.out(1.7)" }
                     );
                 }
             });
