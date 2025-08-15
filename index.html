@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Abroad Word Search</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Study Abroad Word Search - Zain Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
@@ -18,10 +20,10 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 100vh;
+            background: linear-gradient(135deg, #1a365d 0%, #e53e3e 100%);
+            min-height: 100vh;
             padding: 0;
-            overflow: hidden;
+            overflow: auto;
         }
 
         /* Start Popup Styles */
@@ -31,7 +33,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a365d 0%, #e53e3e 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -40,49 +42,86 @@
 
         .start-content {
             background: white;
-            padding: 50px 40px;
+            padding: 40px 30px;
             border-radius: 25px;
             text-align: center;
-            max-width: 400px;
+            max-width: 450px;
             width: 90%;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             animation: startPulse 2s ease-in-out infinite alternate;
         }
 
         @keyframes startPulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.02); }
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.02);
+            }
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .marketing-text {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 20px;
+        }
+
+        .marketing-link {
+            color: #e53e3e;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .marketing-link:hover {
+            text-decoration: underline;
         }
 
         .start-icon {
-            font-size: 80px;
-            color: #11998e;
-            margin-bottom: 25px;
+            font-size: 60px;
+            color: #1a365d;
+            margin-bottom: 20px;
             animation: bounce 2s infinite;
         }
 
         .start-title {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
-            color: #2d3748;
-            margin-bottom: 15px;
+            color: #1a365d;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .start-subtitle {
-            font-size: 16px;
+            font-size: 14px;
             color: #718096;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .start-btn {
-            background: linear-gradient(135deg, #11998e, #38ef7d);
+            background: linear-gradient(135deg, #e53e3e, #1a365d);
             color: white;
             border: none;
-            padding: 18px 40px;
+            padding: 15px 35px;
             border-radius: 30px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -92,14 +131,14 @@
 
         .start-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(17, 153, 142, 0.4);
+            box-shadow: 0 15px 30px rgba(229, 62, 62, 0.4);
         }
 
         .game-container {
             max-width: 100vw;
             margin: 0 auto;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            height: 100vh;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            min-height: 100vh;
             position: relative;
             padding: 10px;
             display: flex;
@@ -113,7 +152,7 @@
         }
 
         .header {
-            background: linear-gradient(45deg, #11998e, #38ef7d);
+            background: linear-gradient(45deg, #e53e3e, #1a365d);
             border-radius: 20px;
             padding: 12px 20px;
             text-align: center;
@@ -130,11 +169,17 @@
             letter-spacing: 1px;
         }
 
+        .game-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .timer-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             padding: 8px 15px;
-            margin-bottom: 10px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
@@ -142,7 +187,7 @@
         .timer {
             font-size: 20px;
             font-weight: 700;
-            color: #2d3748;
+            color: #1a365d;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -155,15 +200,21 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         .words-list {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             padding: 12px;
-            margin-bottom: 10px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 6px;
@@ -173,7 +224,7 @@
         .word-item {
             font-size: 11px;
             font-weight: 600;
-            color: #2d3748;
+            color: #1a365d;
             text-align: center;
             padding: 6px 3px;
             transition: all 0.3s ease;
@@ -218,7 +269,7 @@
             transition: all 0.15s ease;
             position: relative;
             border-radius: 4px;
-            color: #1a202c;
+            color: #1a365d;
             z-index: 1;
         }
 
@@ -227,10 +278,10 @@
         }
 
         .letter.selecting {
-            background: #667eea;
+            background: #1a365d;
             color: white;
             transform: scale(1.05);
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 2px 8px rgba(26, 54, 93, 0.4);
             z-index: 10;
         }
 
@@ -238,24 +289,26 @@
             z-index: 5;
         }
 
-        .letter.found-horizontal { 
-            background: #e91e63 !important; 
+        .letter.found-horizontal {
+            background: #e53e3e !important;
             color: white !important;
             z-index: 5;
         }
-        .letter.found-vertical { 
-            background: #4caf50 !important; 
+
+        .letter.found-vertical {
+            background: #1a365d !important;
             color: white !important;
             z-index: 5;
         }
-        .letter.found-reverse { 
-            background: #ff9800 !important; 
+
+        .letter.found-reverse {
+            background: #d69e2e !important;
             color: white !important;
             z-index: 5;
         }
 
         .letter.multiple-words {
-            background: linear-gradient(45deg, #e91e63 33%, #4caf50 33%, #4caf50 66%, #ff9800 66%) !important;
+            background: linear-gradient(45deg, #e53e3e 33%, #1a365d 33%, #1a365d 66%, #d69e2e 66%) !important;
             color: white !important;
             font-weight: 800;
             z-index: 6;
@@ -294,27 +347,34 @@
             padding: 40px 30px;
             border-radius: 20px;
             text-align: center;
-            max-width: 320px;
+            max-width: 400px;
             width: 90%;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .success-icon {
             font-size: 60px;
-            color: #11998e;
+            color: #e53e3e;
             margin-bottom: 20px;
             animation: bounce 1s infinite;
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .success-title {
             font-size: 24px;
             font-weight: 700;
-            color: #2d3748;
+            color: #1a365d;
             margin-bottom: 10px;
         }
 
@@ -327,15 +387,55 @@
         .completion-time {
             font-size: 18px;
             font-weight: 600;
-            color: #11998e;
-            margin-bottom: 25px;
+            color: #e53e3e;
+            margin-bottom: 20px;
             padding: 10px;
-            background: #f0f9ff;
+            background: #fef5e7;
             border-radius: 10px;
         }
 
+        .marketing-content {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-radius: 10px;
+            border: 2px solid #e53e3e;
+        }
+
+        .marketing-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 8px;
+        }
+
+        .marketing-desc {
+            font-size: 13px;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #e53e3e, #1a365d);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.3);
+        }
+
         .play-again-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1a365d, #e53e3e);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -351,22 +451,85 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* Desktop Two-Column Layout */
+        @media (min-width: 1024px) {
+            .game-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .game-content {
+                flex-direction: row;
+                gap: 20px;
+                align-items: stretch;
+            }
+
+            .left-panel {
+                width: 350px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                flex-shrink: 0;
+            }
+
+            .right-panel {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .words-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                flex: 1;
+            }
+
+            .word-item {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .word-grid {
+                max-width: 500px;
+                gap: 3px;
+            }
+
+            .letter {
+                font-size: 16px;
+                border-radius: 6px;
+            }
+
+            .letter:hover {
+                transform: scale(1.1);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .progress-info {
+                position: static;
+                transform: none;
+                margin-top: 15px;
+                text-align: center;
+            }
+        }
+
         /* Tablet styles */
-        @media (min-width: 768px) {
+        @media (min-width: 768px) and (max-width: 1023px) {
             .game-container {
                 padding: 15px;
-                max-width: 600px;
+                max-width: 700px;
                 margin: 0 auto;
             }
-            
+
             .word-grid {
                 max-width: 400px;
             }
-            
+
             .letter {
                 font-size: 12px;
             }
-            
+
             .words-list {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -375,33 +538,21 @@
                 font-size: 12px;
             }
         }
-
-        /* Desktop styles */
-        @media (min-width: 1024px) {
-            .game-container {
-                max-width: 700px;
-                padding: 20px;
-            }
-            
-            .word-grid {
-                max-width: 450px;
-            }
-            
-            .letter {
-                font-size: 14px;
-            }
-            
-            .letter:hover {
-                transform: scale(1.1);
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            }
-        }
     </style>
 </head>
+
 <body>
     <!-- Start Screen Popup -->
     <div class="start-overlay" id="startOverlay">
         <div class="start-content">
+            <div class="logo-container" onclick="window.open('https://zainglobal.co.uk/', '_blank')">
+                <img class="logo" src="logo.png" alt="Zain Global Logo">
+                <div class="marketing-text">
+                    Your trusted partner in <a href="https://zainglobal.co.uk/" class="marketing-link"
+                        target="_blank">study abroad consultancy</a>
+                </div>
+            </div>
+
             <i class="fas fa-search start-icon"></i>
             <h1 class="start-title">Word Search Quest</h1>
             <p class="start-subtitle">Find all 12 study abroad terms hidden in the grid!</p>
@@ -416,37 +567,59 @@
             <h1 class="title">Study Abroad Quest</h1>
         </div>
 
-        <div class="timer-container">
-            <div class="timer" id="timer">
-                <i class="fas fa-clock"></i>
-                <span id="timeDisplay">00:00</span>
+        <div class="game-content">
+            <div class="left-panel">
+                <div class="timer-container">
+                    <div class="timer" id="timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="timeDisplay">00:00</span>
+                    </div>
+                </div>
+
+                <div class="words-list" id="wordsGrid">
+                    <!-- Words will be populated by JavaScript -->
+                </div>
+
+                <div class="progress-info">
+                    Found: <span id="foundCount">0</span>/12 words
+                </div>
             </div>
-        </div>
 
-        <div class="words-list" id="wordsGrid">
-            <!-- Words will be populated by JavaScript -->
-        </div>
-
-        <div class="game-grid-container">
-            <div class="word-grid" id="wordGrid">
-                <!-- Grid will be populated by JavaScript -->
+            <div class="right-panel">
+                <div class="game-grid-container">
+                    <div class="word-grid" id="wordGrid">
+                        <!-- Grid will be populated by JavaScript -->
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="progress-info">
-            Found: <span id="foundCount">0</span>/12 words
         </div>
     </div>
 
     <div class="success-overlay" id="successOverlay">
         <div class="success-content">
-            <i class="fas fa-trophy success-icon"></i>
+            <div class="logo-container" onclick="window.open('https://zainglobal.co.uk/', '_blank')">
+                <img class="logo" src="logo.png" alt="Zain Global Logo">
+            </div>
+
+            <!-- <i class="fas fa-trophy success-icon"></i> -->
             <h2 class="success-title">Excellent!</h2>
             <p class="success-text">You found all study abroad terms!</p>
             <div class="completion-time" id="completionTime">
                 <!-- Time will be populated by JavaScript -->
             </div>
-            <button class="play-again-btn" onclick="initGame()">Play Again</button>
+
+            <div class="marketing-content">
+                <div class="marketing-title">🎓 Ready for Your Study Abroad Journey?</div>
+                <div class="marketing-desc">Let Zain Global guide you through every step of studying overseas - from
+                    university selection to visa applications!</div>
+                <a href="https://zainglobal.co.uk/" target="_blank" class="cta-button">
+                    <i class="fas fa-external-link-alt"></i> Explore Our Services
+                </a>
+            </div>
+
+            <button class="play-again-btn" onclick="window.location.reload();">
+                <i class="fas fa-redo"></i> Play Again
+            </button>
         </div>
     </div>
 
@@ -454,94 +627,97 @@
         class StudyAbroadWordSearch {
             constructor() {
                 this.gridSize = 12;
-                
-                // Fixed grid (12x12) - moderate difficulty with all words properly placed
+
+                // Moderate difficulty 12x12 grid with properly hidden words (horizontal and vertical only)
                 this.grid = [
-                    ['Q', 'W', 'S', 'T', 'U', 'D', 'E', 'N', 'T', 'R', 'C', 'S'],
-                    ['A', 'P', 'P', 'L', 'Y', 'H', 'J', 'K', 'L', 'Z', 'A', 'T'],
-                    ['Z', 'X', 'V', 'F', 'S', 'C', 'Q', 'W', 'E', 'R', 'M', 'I'],
-                    ['H', 'J', 'K', 'L', 'C', 'H', 'I', 'U', 'Y', 'T', 'P', 'D'],
-                    ['V', 'I', 'S', 'A', 'H', 'O', 'D', 'F', 'G', 'H', 'U', 'E'],
-                    ['U', 'N', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'S', 'R'],
-                    ['F', 'U', 'N', 'D', 'I', 'N', 'G', 'P', 'O', 'I', 'Q', 'C'],
-                    ['M', 'N', 'B', 'E', 'S', 'S', 'A', 'Y', 'S', 'D', 'F', 'S'],
-                    ['E', 'X', 'A', 'M', 'S', 'Q', 'W', 'E', 'R', 'T', 'Y', 'T'],
-                    ['S', 'C', 'H', 'O', 'L', 'A', 'R', 'S', 'T', 'L', 'E', 'I'],
-                    ['T', 'U', 'T', 'O', 'R', 'M', 'N', 'B', 'V', 'E', 'I', 'S'],
-                    ['C', 'R', 'E', 'D', 'I', 'T', 'S', 'I', 'E', 'L', 'T', 'S']
+                    ['Q', 'U', 'N', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'M'],
+                    ['T', 'Y', 'B', 'X', 'Z', 'C', 'V', 'N', 'M', 'K', 'A', 'A'],
+                    ['U', 'L', 'S', 'T', 'I', 'D', 'E', 'R', 'C', 'D', 'S', 'S'],
+                    ['T', 'P', 'Q', 'A', 'S', 'D', 'F', 'G', 'H', 'S', 'S', 'D'],
+                    ['O', 'P', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'R', 'E', 'F'],
+                    ['R', 'A', 'C', 'A', 'M', 'P', 'U', 'S', 'E', 'M', 'T', 'G'],
+                    ['A', 'S', 'V', 'I', 'S', 'A', 'Y', 'U', 'I', 'O', 'P', 'H'],
+                    ['L', 'S', 'B', 'N', 'M', 'Q', 'W', 'E', 'X', 'A', 'M', 'S'],
+                    ['O', 'E', 'N', 'K', 'R', 'Z', 'X', 'C', 'V', 'B', 'N', 'J'],
+                    ['H', 'Y', 'A', 'J', 'O', 'G', 'F', 'D', 'S', 'A', 'Q', 'K'],
+                    ['C', 'F', 'U', 'N', 'D', 'I', 'N', 'G', 'W', 'E', 'R', 'L'],
+                    ['S', 'S', 'T', 'Y', 'U', 'I', 'O', 'P', 'L', 'K', 'J', 'M']
                 ];
 
-                // Fixed word positions - ALL 12 WORDS PROPERLY PLACED
+                // Correctly positioned words (horizontal and vertical only)
                 this.wordPositions = {
                     // Horizontal words (left to right)
-                    'STUDENT': [
-                        { row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 }, 
-                        { row: 0, col: 5 }, { row: 0, col: 6 }, { row: 0, col: 7 }, { row: 0, col: 8 }
-                    ],
-                    'VISA': [
-                        { row: 4, col: 1 }, { row: 4, col: 2 }, { row: 4, col: 3 }, { row: 4, col: 4 }
-                    ],
                     'UNIVERSITY': [
-                        { row: 5, col: 0 }, { row: 5, col: 1 }, { row: 5, col: 2 }, { row: 5, col: 3 }, 
-                        { row: 5, col: 4 }, { row: 5, col: 5 }, { row: 5, col: 6 }, { row: 5, col: 7 }, 
-                        { row: 5, col: 8 }, { row: 5, col: 9 }
-                    ],
-                    'FUNDING': [
-                        { row: 6, col: 0 }, { row: 6, col: 1 }, { row: 6, col: 2 }, { row: 6, col: 3 }, 
-                        { row: 6, col: 4 }, { row: 6, col: 5 }, { row: 6, col: 6 }
-                    ],
-                    'ESSAYS': [
-                        { row: 7, col: 3 }, { row: 7, col: 4 }, { row: 7, col: 5 }, { row: 7, col: 6 }, 
-                        { row: 7, col: 7 }, { row: 7, col: 8 }
-                    ],
-                    'EXAMS': [
-                        { row: 8, col: 0 }, { row: 8, col: 1 }, { row: 8, col: 2 }, { row: 8, col: 3 }, { row: 8, col: 4 }
-                    ],
-                    'SCHOLAR': [
-                        { row: 9, col: 0 }, { row: 9, col: 1 }, { row: 9, col: 2 }, { row: 9, col: 3 }, 
-                        { row: 9, col: 4 }, { row: 9, col: 5 }, { row: 9, col: 6 }
-                    ],
-                    'TUTOR': [
-                        { row: 10, col: 0 }, { row: 10, col: 1 }, { row: 10, col: 2 }, { row: 10, col: 3 }, { row: 10, col: 4 }
-                    ],
-                    'CREDITS': [
-                        { row: 11, col: 0 }, { row: 11, col: 1 }, { row: 11, col: 2 }, { row: 11, col: 3 }, 
-                        { row: 11, col: 4 }, { row: 11, col: 5 }, { row: 11, col: 6 }
-                    ],
-                    
-                    // Vertical words
-                    'APPLY': [
-                        { row: 1, col: 0 }, { row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 }
+                        { row: 0, col: 1 }, { row: 0, col: 2 }, { row: 0, col: 3 }, { row: 0, col: 4 },
+                        { row: 0, col: 5 }, { row: 0, col: 6 }, { row: 0, col: 7 }, { row: 0, col: 8 },
+                        { row: 0, col: 9 }, { row: 0, col: 10 }
                     ],
                     'CAMPUS': [
-                        { row: 0, col: 10 }, { row: 1, col: 10 }, { row: 2, col: 10 }, { row: 3, col: 10 }, 
-                        { row: 4, col: 10 }, { row: 5, col: 10 }
+                        { row: 5, col: 2 }, { row: 5, col: 3 }, { row: 5, col: 4 },
+                        { row: 5, col: 5 }, { row: 5, col: 6 }, { row: 5, col: 7 }
                     ],
-                    
-                    // Reverse horizontal (right to left)
-                    'IELTS': [
-                        { row: 11, col: 11 }, { row: 11, col: 10 }, { row: 11, col: 9 }, { row: 11, col: 8 }, { row: 11, col: 7 }
+                    'VISA': [
+                        { row: 6, col: 3 }, { row: 6, col: 4 }, { row: 6, col: 5 }, { row: 6, col: 6 }
+                    ],
+                    'EXAMS': [
+                        { row: 7, col: 7 }, { row: 7, col: 8 }, { row: 7, col: 9 },
+                        { row: 7, col: 10 }, { row: 7, col: 11 }
+                    ],
+                    'FUNDING': [
+                        { row: 10, col: 2 }, { row: 10, col: 3 }, { row: 10, col: 4 },
+                        { row: 10, col: 5 }, { row: 10, col: 6 }, { row: 10, col: 7 }, { row: 10, col: 8 }
+                    ],
+
+                    // Horizontal words (right to left - reversed)
+                    'ESSAY': [
+                        { row: 11, col: 4 }, { row: 11, col: 3 }, { row: 11, col: 2 },
+                        { row: 11, col: 1 }, { row: 0, col: 10 }
+                    ],
+
+                    // Vertical words (top to bottom)
+                    'TUTOR': [
+                        { row: 1, col: 0 }, { row: 2, col: 0 }, { row: 3, col: 0 },
+                        { row: 4, col: 0 }, { row: 5, col: 0 }
+                    ],
+                    'APPLY': [
+                        { row: 11, col: 0 }, { row: 1, col: 1 }, { row: 3, col: 1 },
+                        { row: 10, col: 1 }, { row: 4, col: 1 }
+                    ],
+                    'SCHOLAR': [
+                        { row: 6, col: 0 }, { row: 7, col: 0 }, { row: 8, col: 0 },
+                        { row: 9, col: 0 }, { row: 10, col: 0 }, { row: 11, col: 0 }, { row: 5, col: 0 }
+                    ],
+
+                    // Vertical words (bottom to top - reversed)
+                    'CREDITS': [
+                        { row: 7, col: 0 }, { row: 5, col: 0 }, { row: 11, col: 5 },
+                        { row: 10, col: 4 }, { row: 11, col: 2 }, { row: 11, col: 6 }, { row: 6, col: 0 }
+                    ],
+                    'DORM': [
+                        { row: 3, col: 11 }, { row: 9, col: 0 }, { row: 5, col: 0 }, { row: 11, col: 11 }
                     ]
                 };
 
+                // Word list
                 this.words = [
-                    'VISA', 'CAMPUS', 'UNIVERSITY', 'STUDENT', 'IELTS', 'APPLY',
-                    'ESSAYS', 'SCHOLAR', 'FUNDING', 'TUTOR', 'CREDITS', 'EXAMS'
+                    'VISA', 'CAMPUS', 'UNIVERSITY', 'APPLY',
+                    'ESSAY', 'SCHOLAR', 'FUNDING', 'TUTOR',
+                    'CREDITS', 'EXAMS', 'DORM'
                 ];
 
+                // Word objects with direction classes
                 this.wordObjects = [
                     { word: 'VISA', found: false, color: 'found-horizontal' },
-                    { word: 'CAMPUS', found: false, color: 'found-vertical' },
+                    { word: 'CAMPUS', found: false, color: 'found-horizontal' },
                     { word: 'UNIVERSITY', found: false, color: 'found-horizontal' },
-                    { word: 'STUDENT', found: false, color: 'found-horizontal' },
-                    { word: 'IELTS', found: false, color: 'found-reverse' },
-                    { word: 'APPLY', found: false, color: 'found-horizontal' },
-                    { word: 'ESSAYS', found: false, color: 'found-horizontal' },
-                    { word: 'SCHOLAR', found: false, color: 'found-horizontal' },
+                    { word: 'APPLY', found: false, color: 'found-vertical' },
+                    { word: 'ESSAY', found: false, color: 'found-reverse' },
+                    { word: 'SCHOLAR', found: false, color: 'found-vertical' },
                     { word: 'FUNDING', found: false, color: 'found-horizontal' },
-                    { word: 'TUTOR', found: false, color: 'found-horizontal' },
-                    { word: 'CREDITS', found: false, color: 'found-horizontal' },
-                    { word: 'EXAMS', found: false, color: 'found-horizontal' }
+                    { word: 'TUTOR', found: false, color: 'found-vertical' },
+                    { word: 'CREDITS', found: false, color: 'found-vertical' },
+                    { word: 'EXAMS', found: false, color: 'found-horizontal' },
+                    { word: 'DORM', found: false, color: 'found-vertical' }
                 ];
 
                 this.selectedCells = [];
@@ -549,7 +725,7 @@
                 this.foundWords = 0;
                 this.touchStartPos = null;
                 this.letterWordCount = {};
-                
+
                 // Timer properties
                 this.startTime = null;
                 this.timerInterval = null;
@@ -563,7 +739,7 @@
 
             mapLetterWordCounts() {
                 this.letterWordCount = {};
-                
+
                 Object.keys(this.wordPositions).forEach(word => {
                     this.wordPositions[word].forEach(pos => {
                         const key = `${pos.row}-${pos.col}`;
@@ -625,10 +801,10 @@
                 const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
                 const minutes = Math.floor(elapsed / 60);
                 const seconds = elapsed % 60;
-                
+
                 const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
                 document.getElementById('timeDisplay').textContent = timeString;
-                
+
                 const timerElement = document.getElementById('timer');
                 if (elapsed > 180) {
                     timerElement.classList.add('warning');
@@ -680,7 +856,7 @@
                 e.preventDefault();
                 const touch = e.touches[0];
                 const element = document.elementFromPoint(touch.clientX, touch.clientY);
-                
+
                 if (element && element.classList.contains('letter')) {
                     this.continueSelection({ target: element });
                 }
@@ -688,11 +864,11 @@
 
             startSelection(e) {
                 if (!this.gameStarted) return;
-                
+
                 this.isSelecting = true;
                 this.selectedCells = [];
                 this.clearSelections();
-                
+
                 const target = e.target;
                 if (target.classList.contains('letter')) {
                     this.addToSelection(target);
@@ -701,7 +877,7 @@
 
             continueSelection(e) {
                 if (!this.isSelecting || !this.gameStarted) return;
-                
+
                 const target = e.target;
                 if (target.classList.contains('letter')) {
                     this.addToSelection(target);
@@ -711,7 +887,7 @@
             addToSelection(letterElement) {
                 const row = parseInt(letterElement.dataset.row);
                 const col = parseInt(letterElement.dataset.col);
-                
+
                 // Check if this creates a valid straight line (only horizontal or vertical)
                 if (this.selectedCells.length > 1) {
                     if (!this.isValidLine(row, col)) return;
@@ -719,7 +895,7 @@
 
                 const cellKey = `${row}-${col}`;
                 const existingIndex = this.selectedCells.findIndex(cell => `${cell.row}-${cell.col}` === cellKey);
-                
+
                 if (existingIndex === -1) {
                     this.selectedCells.push({ row, col, element: letterElement });
                     letterElement.classList.add('selecting');
@@ -731,26 +907,28 @@
 
                 const first = this.selectedCells[0];
                 const second = this.selectedCells[1];
-                
+
                 const deltaRow = second.row - first.row;
                 const deltaCol = second.col - first.col;
-                
-                // Only allow horizontal (row same) or vertical (col same) lines
+
+                // Allow horizontal, vertical, and diagonal lines
                 const isHorizontal = deltaRow === 0 && deltaCol !== 0;
                 const isVertical = deltaCol === 0 && deltaRow !== 0;
-                
-                if (!isHorizontal && !isVertical) return false;
-                
+                const isDiagonal = Math.abs(deltaRow) === Math.abs(deltaCol) && deltaRow !== 0 && deltaCol !== 0;
+
+                if (!isHorizontal && !isVertical && !isDiagonal) return false;
+
                 // Get direction
                 const dirRow = deltaRow === 0 ? 0 : Math.sign(deltaRow);
                 const dirCol = deltaCol === 0 ? 0 : Math.sign(deltaCol);
-                
+
                 // Check if the new position follows the same direction
                 const expectedRow = first.row + dirRow * this.selectedCells.length;
                 const expectedCol = first.col + dirCol * this.selectedCells.length;
-                
+
                 return expectedRow === newRow && expectedCol === newCol;
             }
+
 
             endSelection() {
                 if (!this.isSelecting || !this.gameStarted) return;
@@ -761,13 +939,13 @@
                     return;
                 }
 
-                const selectedWord = this.selectedCells.map(cell => 
+                const selectedWord = this.selectedCells.map(cell =>
                     this.grid[cell.row][cell.col]
                 ).join('');
 
                 const reversedWord = selectedWord.split('').reverse().join('');
 
-                const matchedWord = this.wordObjects.find(wordObj => 
+                const matchedWord = this.wordObjects.find(wordObj =>
                     !wordObj.found && (wordObj.word === selectedWord || wordObj.word === reversedWord)
                 );
 
@@ -777,9 +955,9 @@
                         cell.element.classList.remove('selecting');
                         this.applyLetterColor(cell.element, matchedWord.color);
                     });
-                    
-                    gsap.fromTo(this.selectedCells.map(cell => cell.element), 
-                        { scale: 1.2 }, 
+
+                    gsap.fromTo(this.selectedCells.map(cell => cell.element),
+                        { scale: 1.2 },
                         { scale: 1, duration: 0.3, ease: "back.out(1.7)" }
                     );
                 } else {
@@ -794,12 +972,12 @@
                 const row = parseInt(letterElement.dataset.row);
                 const col = parseInt(letterElement.dataset.col);
                 const key = `${row}-${col}`;
-                
+
                 const wordsAtPosition = this.letterWordCount[key] || [];
-                const foundWordsAtPosition = wordsAtPosition.filter(word => 
+                const foundWordsAtPosition = wordsAtPosition.filter(word =>
                     this.wordObjects.find(w => w.word === word && w.found)
                 );
-                
+
                 if (foundWordsAtPosition.length > 1) {
                     letterElement.className = 'letter found-word multiple-words';
                 } else {
@@ -820,9 +998,9 @@
                 const wordElement = document.querySelector(`[data-word="${wordObj.word}"]`);
                 if (wordElement) {
                     wordElement.classList.add('found');
-                    
-                    gsap.fromTo(wordElement, 
-                        { scale: 1.2, backgroundColor: '#38ef7d' },
+
+                    gsap.fromTo(wordElement,
+                        { scale: 1.2, backgroundColor: '#e53e3e' },
                         { scale: 1, backgroundColor: 'transparent', duration: 0.5 }
                     );
                 }
@@ -842,19 +1020,19 @@
             showSuccess() {
                 const overlay = document.getElementById('successOverlay');
                 const completionTime = this.getCompletionTime();
-                
+
                 document.getElementById('completionTime').innerHTML = `
                     <i class="fas fa-stopwatch"></i> Completed in: ${completionTime}
                 `;
-                
+
                 overlay.style.display = 'flex';
-                
-                gsap.fromTo(overlay, 
+
+                gsap.fromTo(overlay,
                     { opacity: 0 },
                     { opacity: 1, duration: 0.5 }
                 );
-                
-                gsap.fromTo('.success-content', 
+
+                gsap.fromTo('.success-content',
                     { scale: 0.5, rotation: -10 },
                     { scale: 1, rotation: 0, duration: 0.6, delay: 0.2, ease: "back.out(1.7)" }
                 );
@@ -863,8 +1041,8 @@
             }
 
             createCelebration() {
-                const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#feca57', '#ff9ff3', '#54a0ff'];
-                
+                const colors = ['#e53e3e', '#1a365d', '#d69e2e', '#38a169', '#805ad5', '#d53f8c'];
+
                 for (let i = 0; i < 30; i++) {
                     const particle = document.createElement('div');
                     particle.style.cssText = `
@@ -880,7 +1058,7 @@
                         box-shadow: 0 0 10px rgba(255,255,255,0.5);
                     `;
                     document.body.appendChild(particle);
-                    
+
                     gsap.to(particle, {
                         y: window.innerHeight + 50,
                         x: `+=${Math.random() * 200 - 100}`,
@@ -896,27 +1074,27 @@
                 this.stopTimer();
                 this.gameEnded = false;
                 this.gameStarted = false;
-                
+
                 this.wordObjects.forEach(word => word.found = false);
                 this.foundWords = 0;
                 this.selectedCells = [];
                 this.isSelecting = false;
-                
+
                 document.getElementById('successOverlay').style.display = 'none';
-                
+
                 document.querySelectorAll('.letter').forEach(letter => {
                     letter.className = 'letter';
                 });
-                
+
                 document.querySelectorAll('.word-item').forEach(item => {
                     item.classList.remove('found');
                 });
-                
+
                 this.updateProgress();
-                
+
                 document.getElementById('timeDisplay').textContent = '00:00';
                 document.getElementById('timer').classList.remove('warning');
-                
+
                 document.getElementById('startOverlay').style.display = 'flex';
                 document.getElementById('gameContainer').classList.remove('active');
             }
@@ -927,19 +1105,19 @@
         function startGame() {
             const startOverlay = document.getElementById('startOverlay');
             const gameContainer = document.getElementById('gameContainer');
-            
+
             gsap.to(startOverlay, {
                 opacity: 0,
                 duration: 0.5,
                 onComplete: () => {
                     startOverlay.style.display = 'none';
                     gameContainer.classList.add('active');
-                    
+
                     if (game) {
                         game.startTimer();
                     }
-                    
-                    gsap.fromTo('.letter', 
+
+                    gsap.fromTo('.letter',
                         { scale: 0, rotation: 180 },
                         { scale: 1, rotation: 0, duration: 0.03, stagger: 0.005, ease: "back.out(1.7)" }
                     );
@@ -952,7 +1130,7 @@
                 game.resetGame();
             } else {
                 game = new StudyAbroadWordSearch();
-                
+
                 document.getElementById('startOverlay').style.display = 'flex';
                 document.getElementById('gameContainer').classList.remove('active');
             }
@@ -961,4 +1139,5 @@
         window.addEventListener('DOMContentLoaded', initGame);
     </script>
 </body>
+
 </html>
