@@ -562,6 +562,53 @@
                 font-size: 15px;
             }
         }
+
+        /* Button Container */
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Contact Button Styling */
+.contact-button {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.contact-button:hover {
+    background: linear-gradient(135deg, #218838, #1aa085);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button, .contact-button {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
     </style>
 </head>
 
@@ -620,32 +667,40 @@
     </div>
 
     <div class="success-overlay" id="successOverlay">
-        <div class="success-content">
-            <div class="logo-container" onclick="window.open('https://zainglobal.co.uk/', '_blank')">
-                <img class="logo" src="logo.png" alt="Zain Global Logo">
-            </div>
+    <div class="success-content">
+        <div class="logo-container" onclick="window.open('https://zainglobal.co.uk/', '_blank')">
+            <img class="logo" src="logo.png" alt="Zain Global Logo">
+        </div>
 
-            <i class="fas fa-trophy success-icon"></i>
-            <h2 class="success-title">Excellent!</h2>
-            <p class="success-text">You found all study abroad terms!</p>
-            <div class="completion-time" id="completionTime">
-                <!-- Time will be populated by JavaScript -->
-            </div>
+        <!-- <i class="fas fa-trophy success-icon"></i> -->
+        <h2 class="success-title">Excellent!</h2>
+        <p class="success-text">You found all study abroad terms!</p>
+        <div class="completion-time" id="completionTime">
+            <!-- Time will be populated by JavaScript -->
+        </div>
 
-            <div class="marketing-content">
-                <div class="marketing-title">🎓 Ready for Your Study Abroad Journey?</div>
-                <div class="marketing-desc">Let Zain Global guide you through every step of studying overseas - from
-                    university selection to visa applications!</div>
+        <div class="marketing-content">
+            <div class="marketing-title">🎓 Ready for Your Study Abroad Journey?</div>
+            <div class="marketing-desc">Let Zain Global guide you through every step of studying overseas - from
+                university selection to visa applications!</div>
+            
+            <!-- Button Container -->
+            <div class="button-container">
                 <a href="https://zainglobal.co.uk/" target="_blank" class="cta-button">
                     <i class="fas fa-external-link-alt"></i> Explore Our Services
                 </a>
+                <button onclick="downloadVCard()" class="contact-button">
+                    <i class="fas fa-download"></i> Contact Us
+                </button>
             </div>
-
-            <button class="play-again-btn" onclick="window.location.reload();">
-                <i class="fas fa-redo"></i> Play Again
-            </button>
         </div>
+
+        <button class="play-again-btn" onclick="window.location.reload();">
+            <i class="fas fa-redo"></i> Play Again
+        </button>
     </div>
+</div>
+
 
     <script>
         class StudyAbroadWordSearch {
@@ -1241,8 +1296,36 @@
             }
         }
 
+        function downloadVCard() {
+    const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Purvi Patel
+ORG:Zain Global
+TITLE:Business Development
+TEL;TYPE=WORK:+44 7405 884842
+EMAIL;TYPE=WORK:purvi@zainglobal.co.uk
+URL;TYPE=WORK:https://zainglobal.co.uk
+PHOTO;VALUE=URL:https://zainglobal.co.uk/wp-content/uploads/2022/05/logo.jpg
+NOTE:International student recruitment specialist - Your trusted partner for study abroad journey
+END:VCARD`;
+
+    const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'PurviPatel-ZainGlobal.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    window.URL.revokeObjectURL(url);
+}
+
+
         window.addEventListener('DOMContentLoaded', initGame);
     </script>
 </body>
 
 </html>
+
