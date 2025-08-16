@@ -140,12 +140,13 @@
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
             min-height: 100vh;
             position: relative;
-            padding: 10px;
+            padding: 5px;
             display: flex;
             flex-direction: column;
             opacity: 0;
             transition: opacity 0.5s ease;
-            padding-bottom: 80px; /* Add space for progress info */
+            /* padding-bottom: 80px; */
+            /* Add space for progress info */
         }
 
         .game-container.active {
@@ -158,7 +159,7 @@
             padding: 15px 20px;
             text-align: center;
             color: white;
-            margin-bottom: 12px;
+            margin-bottom: 5px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
@@ -248,7 +249,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px; /* Space for progress info */
+            margin-bottom: 15px;
+            /* Space for progress info */
         }
 
         .word-grid {
@@ -256,7 +258,8 @@
             grid-template-columns: repeat(12, 1fr);
             gap: 2px;
             width: 100%;
-            aspect-ratio: 12/15; /* 12 columns, 15 rows */
+            aspect-ratio: 12/15;
+            /* 12 columns, 15 rows */
             max-width: min(85vw, 380px);
         }
 
@@ -464,8 +467,8 @@
             .game-container {
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 20px;
-                padding-bottom: 20px;
+                padding: 10px;
+                padding-bottom: 10px;
             }
 
             .game-content {
@@ -501,12 +504,12 @@
             }
 
             .word-grid {
-                max-width: 480px;
+                max-width: 450px;
                 gap: 3px;
             }
 
             .letter {
-                font-size: 16px;
+                font-size: 14px;
                 border-radius: 6px;
             }
 
@@ -564,51 +567,134 @@
         }
 
         /* Button Container */
-.button-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-/* Contact Button Styling */
-.contact-button {
-    background: linear-gradient(135deg, #28a745, #20c997);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-}
+        /* Contact Button Styling */
+        .contact-button {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
 
-.contact-button:hover {
-    background: linear-gradient(135deg, #218838, #1aa085);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
-}
+        .contact-button:hover {
+            background: linear-gradient(135deg, #218838, #1aa085);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-button, .contact-button {
-        width: 200px;
-        justify-content: center;
-    }
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
+            .cta-button,
+            .contact-button {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+
+        /* Mobile Marketing Section */
+        .mobile-marketing-section {
+            display: none;
+            /* Hidden by default */
+        }
+
+        /* Show only on mobile */
+        @media (max-width: 1023px) {
+            .mobile-marketing-section {
+                display: block;
+                margin-top: 15px;
+            }
+
+            .mobile-marketing-content {
+                background: linear-gradient(135deg, #f7fafc, #edf2f7);
+                border-radius: 15px;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border: 2px solid #e53e3e;
+            }
+
+            .mobile-marketing-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: #1a365d;
+                margin-bottom: 8px;
+            }
+
+            .mobile-marketing-desc {
+                font-size: 14px;
+                color: #4a5568;
+                margin-bottom: 20px;
+            }
+
+            .mobile-action-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+
+            .mobile-action-btn {
+                background: linear-gradient(135deg, #e53e3e, #1a365d);
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 25px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                width: 200px;
+                justify-content: center;
+                box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+            }
+
+            .mobile-action-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+            }
+
+            .call-btn {
+                background: linear-gradient(135deg, #28a745, #20c997);
+            }
+
+            .call-btn:hover {
+                box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+            }
+
+            .contact-btn {
+                background: linear-gradient(135deg, #6f42c1, #8b5cf6);
+            }
+
+            .contact-btn:hover {
+                box-shadow: 0 6px 20px rgba(111, 66, 193, 0.4);
+            }
+        }
     </style>
 </head>
 
@@ -634,7 +720,7 @@
     </div>
 
     <div class="game-container" id="gameContainer">
-        
+
 
         <div class="game-content">
             <div class="left-panel">
@@ -660,44 +746,58 @@
                         <!-- Grid will be populated by JavaScript -->
                     </div>
                 </div>
+                <!-- Mobile Marketing Content - Add this after game-grid-container -->
+                <div class="mobile-marketing-section">
+                    <div class="mobile-marketing-content">
+                        <div class="mobile-marketing-title">🎓 Ready to Study Abroad?</div>
+                        <div class="mobile-marketing-desc">Get expert guidance from <a href="https://zainglobal.co.uk/" target="_blank">Zain Global</a> consultants</div>
+
+                        <div class="mobile-action-buttons">
+                            <button onclick="downloadVCard()" class="mobile-action-btn website-btn">
+                                <i class="fas fa-phone"></i> Save Contact
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
     <div class="success-overlay" id="successOverlay">
-    <div class="success-content">
-        <div class="logo-container" onclick="window.open('https://zainglobal.co.uk/', '_blank')">
-            <img class="logo" src="logo.png" alt="Zain Global Logo">
-        </div>
-
-        <!-- <i class="fas fa-trophy success-icon"></i> -->
-        <h2 class="success-title">Excellent!</h2>
-        <p class="success-text">You found all study abroad terms!</p>
-        <div class="completion-time" id="completionTime">
-            <!-- Time will be populated by JavaScript -->
-        </div>
-
-        <div class="marketing-content">
-            <div class="marketing-title">🎓 Ready for Your Study Abroad Journey?</div>
-            <div class="marketing-desc">Let Zain Global guide you through every step of studying overseas - from
-                university selection to visa applications!</div>
-            
-            <!-- Button Container -->
-            <div class="button-container">
-                <a href="https://zainglobal.co.uk/" target="_blank" class="cta-button">
-                    <i class="fas fa-external-link-alt"></i> Explore Our Services
-                </a>
-                <button onclick="downloadVCard()" class="cta-button">
-                    Contact Us
-                </button>
+        <div class="success-content">
+            <div class="logo-container" onclick="window.open('https://zainglobal.co.uk/', '_blank')">
+                <img class="logo" src="logo.png" alt="Zain Global Logo">
             </div>
-        </div>
 
-        <button class="play-again-btn" onclick="window.location.reload();">
-            <i class="fas fa-redo"></i> Play Again
-        </button>
+            <!-- <i class="fas fa-trophy success-icon"></i> -->
+            <h2 class="success-title">Excellent!</h2>
+            <p class="success-text">You found all study abroad terms!</p>
+            <div class="completion-time" id="completionTime">
+                <!-- Time will be populated by JavaScript -->
+            </div>
+
+            <div class="marketing-content">
+                <div class="marketing-title">🎓 Ready for Your Study Abroad Journey?</div>
+                <div class="marketing-desc">Let Zain Global guide you through every step of studying overseas - from
+                    university selection to visa applications!</div>
+
+                <!-- Button Container -->
+                <div class="button-container">
+                    <a href="https://zainglobal.co.uk/" target="_blank" class="cta-button">
+                        <i class="fas fa-external-link-alt"></i> Explore Our Services
+                    </a>
+                    <button onclick="downloadVCard()" class="cta-button">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+
+            <button class="play-again-btn" onclick="window.location.reload();">
+                <i class="fas fa-redo"></i> Play Again
+            </button>
+        </div>
     </div>
-</div>
 
 
     <script>
@@ -835,7 +935,7 @@
 
             canPlaceWord(word, position, direction) {
                 const positions = this.getWordPositions(word, position, direction);
-                return positions.every(pos => 
+                return positions.every(pos =>
                     pos.row >= 0 && pos.row < this.gridRows &&
                     pos.col >= 0 && pos.col < this.gridCols &&
                     (this.grid[pos.row][pos.col] === '' || this.grid[pos.row][pos.col] === pos.letter)
@@ -870,7 +970,7 @@
 
             placeWord(word, position, direction) {
                 const positions = this.getWordPositions(word, position, direction);
-                
+
                 positions.forEach(pos => {
                     this.grid[pos.row][pos.col] = pos.letter;
                 });
@@ -1295,7 +1395,7 @@
         }
 
         function downloadVCard() {
-    const vCardData = `BEGIN:VCARD
+            const vCardData = `BEGIN:VCARD
 VERSION:3.0
 FN:Purvi Patel
 ORG:Zain Global
@@ -1307,18 +1407,18 @@ PHOTO;VALUE=URL:https://zainglobal.co.uk/wp-content/uploads/2022/05/logo.jpg
 NOTE:International student recruitment specialist - Your trusted partner for study abroad journey
 END:VCARD`;
 
-    const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-    const url = window.URL.createObjectURL(blob);
-    
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'PurviPatel-ZainGlobal.vcf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    window.URL.revokeObjectURL(url);
-}
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'PurviPatel-ZainGlobal.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            window.URL.revokeObjectURL(url);
+        }
 
 
         window.addEventListener('DOMContentLoaded', initGame);
@@ -1326,6 +1426,3 @@ END:VCARD`;
 </body>
 
 </html>
-
-
-
